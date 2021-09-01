@@ -21,7 +21,10 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
 
         if(camposCompletos) {
+            localStorage.setItem('User-Logged', JSON.stringify({usuario: inputUser.value}));
             window.location = "inicio.html";
+        }else{
+            alert("Debe ingresar los datos")
         }
         
     })

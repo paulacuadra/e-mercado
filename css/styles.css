@@ -139,3 +139,16 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.session{
+  float: right ;
+  border: 5px #343a40 solid;
+  width: 10%;
+  text-align: center;
+  background-color: #343a40;
+
+}
+div.session>p{
+  color: white;
+  width: 10%;
+  text-align: center;
+}
