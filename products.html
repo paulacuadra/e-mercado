@@ -21,10 +21,10 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      </div>
-      <div id="infoUser" style="display: none;" class="container d-flex flex-column flex-md-row justify-content-between">
-        <p id="usuario"></p>
-        <button id="salir">Cerrar Sesion</button>
+        <div id="infoUser" style="display: none;" class="session py-2 d-none d-md-inline-block">
+          <p id="usuario"></p>
+          <button id="salir">Cerrar Sesion</button>
+        </div>
       </div>
     </nav>
    
@@ -51,7 +51,13 @@
           </div>
       </div>
      <div class="row justify-content-end">
-      <div class="col-md-6"></div>
+      <div class="col-md-6">
+      <div id="row container p-0 m-0">
+      <div class="col">
+        <input type="search" id="buscador" placeholder="Buscar producto" class="form-control">
+      </div>
+      </div>
+      </div>
         <div class="col-md-6 col-sm-12 mb-1 container">
           <div class="row container p-0 m-0">
             <div class="col">
