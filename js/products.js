@@ -6,7 +6,7 @@ var maxCost;
 const ORDEN_ASC = 1;
 const ORDEN_DESC = 2;
 const ORDEN_POR_RELEVANCIA = 3;
-const ORDEN_PRECIO = 4;
+
 var buscar;
 
 
@@ -43,15 +43,7 @@ function sortProductos(criterio, array) {
                 return 0;
             }
         );
-    } else if (criteria === 4) {
-        result = array.sort(function (a, b) {
-            let aCost = parseInt(a.cost);
-            let bCost = parseInt(b.cost);
-
-            if (aCost > bCost) { return -1; }
-            if (aCost < bCost) { return 1; }
-            return 0;
-        });
+    
     }
 
     return result;
