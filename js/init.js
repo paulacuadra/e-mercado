@@ -47,11 +47,13 @@ document.addEventListener("DOMContentLoaded", function(e){
   let userLogged = localStorage.getItem('User-Logged');
   let infoUser = document.getElementById("infoUser");
   let user = document.getElementById("usuario");
-
+ 
   if(userLogged){
     userLogged = JSON.parse(userLogged);
     user.innerHTML += userLogged.usuario;
     infoUser.style = "display: inline-block;";
+  
+
 
   }
   if(document.getElementById("salir")){
@@ -61,5 +63,4 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     })      
   }
-
 });
