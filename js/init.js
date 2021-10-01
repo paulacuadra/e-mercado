@@ -43,15 +43,29 @@ var getJSONData = function(url){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+function menuPerfil(usuario){
+  let htmlContentToAppend = `<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ${usuario}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+    <a class="dropdown-item" href="cart.html">Mi carrito</a>
+    <a class="dropdown-item" id="salir">Cerrar sesion</a>
+  </div>
+</div>`
+document.getElementById("infoUser").innerHTML = htmlContentToAppend;
+}
 document.addEventListener("DOMContentLoaded", function(e){
   let userLogged = localStorage.getItem('User-Logged');
-  let infoUser = document.getElementById("infoUser");
-  let user = document.getElementById("usuario");
+
  
   if(userLogged){
     userLogged = JSON.parse(userLogged);
-    user.innerHTML += userLogged.usuario;
+    
     infoUser.style = "display: inline-block;";
+
+    menuPerfil(userLogged.usuario);
   
 
 
