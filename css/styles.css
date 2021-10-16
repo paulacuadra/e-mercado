@@ -167,3 +167,9 @@ div.session>p{
 .star-rating input[type=radio]:checked ~ label {
   color: #ffbf00
 }
+
+.total {
+  padding: 15px;
+  border-radius: .25rem;
+  border: 1px solid #dee2e6
+}
