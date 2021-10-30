@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   if(document.getElementById("salir")){
     document.getElementById("salir").addEventListener("click",function(){
     localStorage.removeItem('User-Logged');
+    localStorage.removeItem('Datos-User');
     window.location = 'index.html';
 
     })      

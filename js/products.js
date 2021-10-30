@@ -61,22 +61,21 @@ function showProducts(array) {
             if (buscar == undefined || producto.name.toLowerCase().indexOf(buscar) != -1 || producto.description.toLowerCase().indexOf(buscar)!= -1) {
 
                 htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
+                <div class="col-md-4 col-sm-6 col-12">
+               
+                <div class="card"  style="width: 18rem;">
+                   <img src="${producto.imgSrc}" class="card-img-top" alt="${producto.name}">
+                   <div class="card-body">
+                     <h5 class="card-title">${producto.name}</h5>
+                     <small class="card-text">${producto.soldCount} productos vendidos.</small>
+                     <p class="card-text">${producto.description}</p>
+                     <p style="text-align: right;" ><strong  class="card-text">${producto.currency} ${producto.cost}</strong></p>
+                     
+                     <a href="product-info.html" class="btn btn-light">Ver producto</a>
                     </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ producto.name + `</h4>
-                            <small class="text-muted">` + producto.soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + producto.description + `</p>
-                        <p class="mb-1 precio"> ` + producto.currency + ` ` + producto.cost + `</p>
-                    </div>
-            
                 </div>
-            </a>
+            
+            </div>
             `
             }
         }

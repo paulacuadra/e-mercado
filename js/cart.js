@@ -34,7 +34,7 @@ function showArticulos(lista) {
             </div>
         `
         resumen += `<div class=" row list-group-item"> 
-        <strong> ${art.name} </strong><small>(Pesos uruguayos)</small>
+        <strong> ${art.name} </strong>
         <p align="right" class="subtotal" id="resumen${i}">$ ${art.currency} ${(art.count * art.unitCost)}</p>
         </div>
         `
@@ -63,6 +63,15 @@ function cantTotal(i, currency) {
 function comprar() {
     alert("Su compra ha sido realizada con exito");
     window.location = "inicio.html";
+}
+function seleccionado() {
+    let credito = document.getElementById("credito");
+    let parrafo = document.getElementById("seleccionado");
+    if (credito.checked) {
+        parrafo.innerHTML = "Tarjeta de crédito"
+    }else{
+        parrafo.innerHTML = "Transferencia bancaria"
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {

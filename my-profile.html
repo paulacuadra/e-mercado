@@ -27,6 +27,11 @@
         font-size: 3.5rem;
       }
     }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;}
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -46,11 +51,54 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="row" style="border-bottom: solid  rgb(182, 180, 180) 1px;">
+      <h3><strong>Mi perfil</strong></h3>
+    </div>
+
+    <!--formulario -->
+    <div style="display: none;" id="formulario">
+      <div class="form-row">
+        <div class="col">
+          <label for="fname">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="fname">
+        </div>
+        <div class="col">
+          <label for="lname">Apellido:</label>
+          <input type="text" class="form-control" id="apellido" name="lname">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="edad">Edad:</label>
+          <input type="number" class="form-control" id="edad" name="edad">
+        </div>
+        <div class="col">
+          <label for="telefono">Teléfono de contacto:</label>
+          <input type="tel" class="form-control" id="cel" name="telefono">
+        </div>
+      </div>
+      <div class="from-row">
+        <div class="col">
+          <label for="e-mail">E-mail:</label>
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" id="confirmar" onclick="guardarDatos()"
+            class="btn btn-success btn-md btn-block">Confirmar cambios</button>
+        </div>
+      </div>
+
+    </div>
+    <!--hasta aca -->
+    <div class="row" id="texto" style="display: inline-block;">
+      <p id="name">Nombre: </p>
+      <p id="lname">Apellido: </p>
+      <p id="anios">Edad: </p>
+      <p id="mail">E-mail: </p>
+      <p id="tel">Teléfono de contacto:</p>
+      <button type="button" class="btn btn-outline-primary" onclick="actDatos()">Actualizar datos</button>
     </div>
   </div>
   <footer class="text-muted bg-light">
