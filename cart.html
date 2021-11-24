@@ -55,7 +55,7 @@
 
         </div>
 
-        <div class="col-12 col-lg-6 total" id="total">
+        <div class="col-12 col-lg-6 total" >
           <h4 style="text-align: center;">Resumen del pedido</h4>
           <div class="list-group" id="resumen">
           </div>
@@ -72,35 +72,41 @@
                 </div>
                 <!-- collapse -->
 
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#direcEnvio">
+                <div id="collapseOne" class="collapse was-validated" aria-labelledby="headingOne" data-parent="#direcEnvio">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-12">
-                        <div class="input-group mb-3">
+                        <div class="input-group form-group mb-3">
                           <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">País:</label>
                           </div>
-                          <select name="pais" id="pais" form="paisEnvio" class="custom-select">
+
+                          <select name="pais" id="pais" form="paisEnvio" class="custom-select form-control " required>
+                            
                             <option value="UY">Uruguay</option>
                             <option value="AR">Argentina</option>
                             <option value="BR">Brasil</option>
                             <option value="CHI">Chile</option>
                           </select>
+                          <div class="invalid-feedback">Por favor seleccione un país.</div>
+
                         </div>
                       </div>
-                      <div class="row">
+                      <div class="row was-validated">
                         <div class="col-5">
-                          <label for="calle">Calle:</label><input type="text" id="calle" name="calle">
+                          <label for="calle">Calle:</label><input type="text" class="form-control" id="calle" required name="calle">
                         </div>
                         <div class="col-1"></div>
                         <div class="col-3">
-                          <label for="numero">Número:</label><input type="number" id="numero" name="numero">
+                          <label for="numero">Número:</label><input type="number" required class="form-control" id="numero"
+                            name="numero">
                         </div>
 
                       </div>
-                      <div class="row">
+                      <div class="row was-validated">
                         <div class="col-5">
-                          <label for="esquina">Esquina:</label><input id="esquina" name="esquina" type="text">
+                          <label for="esquina">Esquina:</label><input id="esquina" required class="form-control" name="esquina"
+                            type="text">
                         </div>
                       </div>
 
@@ -114,44 +120,49 @@
             <div>
               <p>Seleciona un tipo de envio:</p>
 
-              <div>
-                <input class="form-check-input" type="radio" name="envio" id="premium" value="premium" checked>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="envio" id="premium"  checked>
                 <label class="form-check-label" for="premium">
                   Premium (2-5 días) - Costo del 15% sobre el subtotal</label>
               </div>
 
-              <div>
-                <input class="form-check-input" type="radio" id="express" name="envio" value="express">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="express" name="envio" >
                 <label class="form-check-label" for="express">Express (5-8 días) - Costo del 7% sobre el
                   subtotal</label>
               </div>
-              <div>
-                <input class="form-check-input" type="radio" id="standar" name="envio" value="standar">
-                <label class="form-check-label" for="standar">Standard (12 a 15 días) - Costo del 5% sobre el
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="standard" name="envio" >
+                <label class="form-check-label" for="standard">Standard (12 a 15 días) - Costo del 5% sobre el
                   subtotal.</label>
               </div>
 
 
             </div>
-
+            <hr>
             <div>
-              <h5>SubTotal:</h5>
-              <p style="text-align: right;"><strong id="subTotal"></strong></p>
+              <h4>SubTotal:</h5>
+              <p style="text-align: right;">$ <spam id="subTotal"></spam></p>
+              <hr>
 
+            </div>
+            <div>
+              <h4>Envio:</h4>
+              <p style="text-align: right;">$ <strong id="soloEnvio"></strong></p>
               <hr>
             </div>
             <div>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" >
+              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                 Seleccione Forma de pago
               </button>
-              <p id="seleccionado" ></p>
+              <p id="seleccionado"></p>
 
             </div>
-
+            
             <div>
               <h4>Total:</h4>
-              <p style="text-align: right;"><strong id="total"></strong></p>
+              <p style="text-align: right;">$ <strong id="total"></strong></p>
             </div>
             <div>
               <button type="button" class="btn btn-success btn-lg btn-block" onclick="comprar()">Comprar</button>
@@ -177,34 +188,34 @@
               <form>
                 <div class="row">
                   <div class="col">
-                    <input type="radio" id="credito" name="pago" value="credito" checked>
+                    <input type="radio" id="credito" class="modIn" onclick="valModalCredit()" name="pago" value="credito" >
                     <label for="credito">Tarjeta de credito</label>
                     <hr>
-                    <div class="row">
+                    <div id="numeroTarjeta" class="row">
                       <div class="col-6">
                         <label for="numTarj">Número de tarjeta:</label>
-                        <input type="number" class="form-control" id="numTarj" name="numTarj">
+                        <input type="number" class="form-control tarjeta" id="numTarj" required name="numTarj">
                       </div>
                       <div class="col-4">
                         <label for="codSeg">Codigo de seg.:</label>
-                        <input type="number" class="form-control" id="codSeg" name="codSeg">
+                        <input type="number" class="form-control tarjeta"  id="codSeg" required name="codSeg">
                       </div>
                       <div class="col-6">
                         <label for="venc">Vencimiento(MM/AA):</label>
-                        <input type="number" class="form-control" id="venc" name="venc">
+                        <input type="number" class="form-control tarjeta" id="venc" required name="venc">
                       </div>
 
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col">
-                        <input type="radio" id="transferencia" name="pago" value="transferencia">
+                        <input type="radio" id="transferencia" onclick="valModalTransf()" class="modIn" name="pago" value="transferencia">
                         <label for="transferencia">Transferencia bancaria</label>
                         <hr>
 
-                        <div class="col">
+                        <div id="transfBancaria" class="col">
                           <label for="nroCuenta">Número de cuenta:</label>
-                          <input type="number" class="form-control" id="nroCuenta" name="nroCuenta">
+                          <input type="number" class="form-control" required id="nroCuenta" name="nroCuenta">
                         </div>
                       </div>
                     </div>
@@ -214,7 +225,8 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" onclick="seleccionado()" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+              <button type="button" onclick="seleccionado()" data-dismiss="modal" class="btn btn-primary">Save
+                changes</button>
             </div>
           </div>
         </div>
